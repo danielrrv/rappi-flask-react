@@ -36,6 +36,11 @@ def params(modeltype):
     result = '{}'.format(prediction[0][1])
     return jsonify({'modeltype':modeltype,'prediction':result})
 
+@app.route('/')
+def hello():
+    return jsonify({"message":"Restful API For Rappi-model workig!"})
+
+
 def loadModel(filename):
     file = '{}.sav'.format(filename)
     loaded_model= pickle.load(open(file,'rb'))
