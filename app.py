@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
 import json
 import pandas as pd
@@ -38,7 +38,9 @@ def params(modeltype):
 
 @app.route('/')
 def hello():
-    return jsonify({"message":"Restful API For Rappi-model workig!"})
+    # return jsonify({"message":"Restful API For Rappi-model workig!"})
+    return render_template('index.html')
+
 
 
 def loadModel(filename):
