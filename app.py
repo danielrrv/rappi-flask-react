@@ -77,7 +77,7 @@ def buildDataframe(modeltype, request):
 
 
 
-# if __name__ == "__main__":
-#     app.run(port = 4000, debug=True)
+if __name__ == "__main__":
+    app.run(threaded=True)
 
 
