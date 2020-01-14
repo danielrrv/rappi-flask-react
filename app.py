@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import pickle
 import json
 import pandas as pd
@@ -7,7 +8,10 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 
-app  = Flask(__name__)
+
+
+
+app  = Flask(__name__, static_folder="static", template_folder="templates")
 """ elmodelo  = 'Logistic Regression'
 d  = {\
     'to_user_distance':[3.7],
@@ -25,6 +29,10 @@ def hello(modeltype):
     a = pd.DataFrame(request.args,index = [0])
     return  jsonify({'model':modeltype,'request':request.args}) 
  """
+CORS(app)
+
+
+
 
 @app.route('/<string:modeltype>/query')
 def params(modeltype):
@@ -41,6 +49,11 @@ def hello():
     # return jsonify({"message":"Restful API For Rappi-model workig!"})
     return render_template('index.html')
 
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+   return render_template('404.html'), 404
 
 
 def loadModel(filename):
