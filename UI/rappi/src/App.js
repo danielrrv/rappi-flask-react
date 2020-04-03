@@ -10,6 +10,11 @@ function App() {
     <div className="App">
       <Pane
         height={870}
+
+
+
+
+        
         width='100%'
         display="flex"
         alignItems="center"

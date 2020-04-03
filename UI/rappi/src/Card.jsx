@@ -14,6 +14,9 @@ export const Card = ({label}) => {
 const styles = {
     container: {
         height: 80,
+
+
+        
         width: 900,
         padding: 20,
         marginBottom:20,
